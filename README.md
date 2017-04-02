@@ -6,6 +6,7 @@ This Magento 2 theme is really blank. It just enables a fallback to the default 
 This theme comes with SASS files which needs to be compiled.
 The location for the compiled CSS file is:
 ```pub/static/frontend/Blank/default/en_US/css/```
+You can set it to your own needs in `gulpfile.js`.
 
 ### Translation file ###
 
