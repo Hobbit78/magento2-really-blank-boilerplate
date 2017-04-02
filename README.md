@@ -20,7 +20,9 @@ Feel free to set your own settings to your needs.
 
 **Run Gulp**
 For development
+
 ```gulp dev```
 
 For production
+
 ```gulp production```
