@@ -12,8 +12,8 @@ var gulp = require('gulp'),
 	sourcemaps = require('gulp-sourcemaps'),
 	clean = require('gulp-clean');;
 
-// app/design/frontend/Blank/default
 
+// Set your base paths here.
 var path = {
 	theme: 'app/design/frontend/Blank/default/',
 	pub: 'pub/static/frontend/Blank/default/en_US/'
@@ -66,6 +66,7 @@ gulp.task('browser-sync', function(){
 	browserSync.init({
 		browser: ["google chrome"],
 		// Set path to your local server
+		// This is only needed for local development
 		proxy: "magento2-demo.dev"
 	});
 });
@@ -85,11 +86,7 @@ gulp.task('watch', function(){
 // Task Runner
 //==================================
 // Set your local task
-gulp.task('default', ['browser-sync', 'watch', 'sass', 'scripts', 'files']);
-
-// Set dev task (run: gulp dev)
-// Still have sourcemaps available
-gulp.task('dev', ['sass', 'scripts']);
+gulp.task('dev', ['browser-sync', 'watch', 'sass', 'scripts', 'files']);
 
 // Set production task (run: gulp production)
 // Still have sourcemaps available
