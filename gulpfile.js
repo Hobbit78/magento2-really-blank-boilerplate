@@ -55,7 +55,7 @@ gulp.task('sass-production', function(){
 // HTML Task
 //==================================
 gulp.task('files', function(){
-	gulp.src(path.theme + '**/*.html')
+	gulp.src([path.theme + '**/*.html', path.theme + '**/*.phtml'])
 		.pipe(reload({stream:true}));
 });
 
@@ -71,15 +71,27 @@ gulp.task('browser-sync', function(){
 	});
 });
 
+//==================================
+// Clean Task
+//==================================
+gulp.task('clean', function () {
+	return gulp.src(path.pub + 'css/*', {read: false})
+		.pipe(clean());
+});
 
 //==================================
 // Watch Tasks
 //==================================
 gulp.task('watch', function(){
 	gulp.watch(path.theme + '**/*.js', ['scripts']);
-	gulp.watch(path.theme + '**/*.scss', ['sass']);
-	gulp.watch(path.theme + '**/*.sass', ['sass']);
-	gulp.watch(path.theme + '**/*.html', ['files']);
+	gulp.watch([
+		path.theme + '**/*.scss',
+		path.theme + '**/*.sass'
+	], ['sass']);
+	gulp.watch([
+		path.theme + '**/*.phtml',
+		path.theme + '**/*.html'
+	], ['files']);
 });
 
 //==================================
@@ -91,3 +103,6 @@ gulp.task('dev', ['browser-sync', 'watch', 'sass', 'scripts', 'files']);
 // Set production task (run: gulp production)
 // Still have sourcemaps available
 gulp.task('production', ['sass-production', 'scripts']);
+
+// Clean css (run: gulp clean)
+gulp.task('clean', ['clean']);
