@@ -1,0 +1,20 @@
+{
+  "name": "Magento2",
+  "homepage": "https://github.com/Hobbit78/magento2-really-blank-boilerplate",
+  "authors": [
+    "Pierre Denissen <pierre.denissen@gmail.com>"
+  ],
+  "description": "Magento2 theme packages",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation-sites": "^6.3.1"
+  }
+}

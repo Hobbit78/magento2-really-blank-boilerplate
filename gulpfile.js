@@ -18,11 +18,12 @@ var path = {
 	theme: 'app/design/frontend/Blank/default/',
 	pub: 'pub/static/frontend/Blank/default/en_US/'
 }
+
 //==================================
 // Scripts Tasks
 //==================================
 gulp.task('scripts', function(){
-	gulp.src(['app/design/frontend/Blank/default/**/*.js', '!app/design/frontend/Blank/default/**/*.min.js'])
+	gulp.src([path.theme + '**/*.js', '!' + path.theme + '**/*.min.js'])
 		.pipe(reload({stream:true}));
 });
 
@@ -48,7 +49,7 @@ gulp.task('sass-production', function(){
 		.pipe(plumber())
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(autoprefixer('last 2 versions'))
-		.pipe(gulp.dest(path.pub + 'css/'))
+		.pipe(gulp.dest(path.theme + 'web/css/'))
 });
 
 //==================================

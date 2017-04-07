@@ -1,3 +1,4 @@
 node_modules
 web/css/*
 !.gitignore
+bower_components/*
