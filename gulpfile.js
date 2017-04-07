@@ -39,7 +39,7 @@ gulp.task('sass', function(){
 		.pipe(sass({
 			includePaths: [path.theme + 'bower_components/foundation-sites/scss'],
 			outputStyle: 'expanded'}).on('error', sass.logError))
-		.pipe(autoprefixer('last 2 versions'))
+		.pipe(autoprefixer('last 2 versions', 'ie >= 9', 'and_chr >= 2.3'))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(path.pub + '/css/'))
 		.pipe(reload({stream:true}));
@@ -52,7 +52,7 @@ gulp.task('sass-production', function(){
 		.pipe(sass({
 			includePaths: [path.theme + 'bower_components/foundation-sites/scss'],
 			outputStyle: 'compressed'}).on('error', sass.logError))
-		.pipe(autoprefixer('last 2 versions'))
+		.pipe(autoprefixer('last 2 versions', 'ie >= 9', 'and_chr >= 2.3'))
 		.pipe(gulp.dest(path.theme + 'web/css/'))
 });
 
