@@ -33,10 +33,12 @@ gulp.task('scripts', function(){
 
 // Local sass task
 gulp.task('sass', function(){
-	gulp.src(path.theme + 'styles/app.sass')
+	gulp.src([path.theme + 'styles/app.sass', path.theme + 'styles/print.sass'])
 		.pipe(sourcemaps.init())
 		.pipe(plumber())
-		.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+		.pipe(sass({
+			includePaths: [path.theme + 'bower_components/foundation-sites/scss'],
+			outputStyle: 'expanded'}).on('error', sass.logError))
 		.pipe(autoprefixer('last 2 versions'))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(path.pub + '/css/'))
@@ -47,7 +49,9 @@ gulp.task('sass', function(){
 gulp.task('sass-production', function(){
 	gulp.src(path.theme + 'styles/app.sass')
 		.pipe(plumber())
-		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+		.pipe(sass({
+			includePaths: [path.theme + 'bower_components/foundation-sites/scss'],
+			outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(autoprefixer('last 2 versions'))
 		.pipe(gulp.dest(path.theme + 'web/css/'))
 });
