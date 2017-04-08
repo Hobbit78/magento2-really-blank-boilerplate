@@ -32,6 +32,7 @@ Feel free to set your own settings to your needs.
 
 Go to your Magento folder and run `npm install`.
 This will install all dependencies for using Gulp.
+
 *(For using NPM and Gulp you need to install NodeJS. [Check https://nodejs.org/en/]() how to do this.)*
 
 **Run Gulp**
